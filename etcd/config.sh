@@ -10,5 +10,15 @@ sudo mkdir -p  /var/data/etcd
 #Step 3. install etcd
 sudo yum install -y etcd
 
-#Step 3. substitute configuration file on each node
-mv -f etcd.k4450.conf /etc/etcd/etcd.conf
+#Step 4. substitute configuration file on each node
+mv -f etcd.4450.conf /etc/etcd/etcd.conf
+mv -f etcd.510.conf /etc/etcd/etcd.conf
+mv -f etcd.310.conf /etc/etcd/etcd.conf
+
+#Step 5. Write start script
+cp etcd.service /usr/lib/systemd/system/
+
+#Step 6. enable etcd service
+sudo systemctl enable etcd.service
+sudo systemctl daemon-reload
+sudo start etcd.service
