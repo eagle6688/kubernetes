@@ -15,6 +15,10 @@ sudo cp -f etcd.4450.service /usr/lib/systemd/system/etcd.service
 sudo cp -f etcd.510.service /usr/lib/systemd/system/etcd.service
 sudo cp -f etcd.310.service /usr/lib/systemd/system/etcd.service
 
+sudo -cp -f etcd.4450.conf /etc/etcd/etcd.conf
+sudo -cp -f etcd.510.conf /etc/etcd/etcd.conf
+sudo -cp -f etcd.310.conf /etc/etcd/etcd.conf
+
 #Step 5. enable etcd service
 sudo systemctl enable etcd.service
 sudo systemctl daemon-reload

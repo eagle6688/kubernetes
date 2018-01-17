@@ -1,0 +1,10 @@
+[Unit]
+Description=etcd service
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/etcd/etcd.conf
+ExecStart=+/usr/bin/etcd
+
+[Install]
+WantedBy=multi-user.target
