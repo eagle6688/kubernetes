@@ -11,13 +11,14 @@ sudo mkdir -p  /var/data/etcd
 sudo yum install -y etcd
 
 #Step 4. Write start script
-sudo cp -f etcd.4450.service /usr/lib/systemd/system/etcd.service
-sudo cp -f etcd.510.service /usr/lib/systemd/system/etcd.service
-sudo cp -f etcd.310.service /usr/lib/systemd/system/etcd.service
+sudo cp -f etcd.service /usr/lib/systemd/system/etcd.service
 
-sudo -cp -f etcd.4450.conf /etc/etcd/etcd.conf
-sudo -cp -f etcd.510.conf /etc/etcd/etcd.conf
-sudo -cp -f etcd.310.conf /etc/etcd/etcd.conf
+sudo cp -f etcd.4450.conf /etc/etcd/etcd.conf
+sudo cp -f etcd.510.conf /etc/etcd/etcd.conf
+sudo cp -f etcd.310.conf /etc/etcd/etcd.conf
+
+sudo cp -f etcd.bootstrap.sh /etc/etcd/etcd.bootstrap.sh
+sudo chmod +x /etc/etcd/etcd.bootstrap.sh
 
 #Step 5. enable etcd service
 sudo systemctl enable etcd.service

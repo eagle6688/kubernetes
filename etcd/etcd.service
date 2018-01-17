@@ -1,10 +1,13 @@
 [Unit]
 Description=etcd service
+After=network.target
+After=network-online.target
+Wants=network-online.target
 
 [Service]
-Type=simple
+Type=notify
 EnvironmentFile=/etc/etcd/etcd.conf
-ExecStart=+/usr/bin/etcd
+ExecStart=/etc/etcd/etcd.bootstrap.sh
 
 [Install]
 WantedBy=multi-user.target
