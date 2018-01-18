@@ -5,7 +5,7 @@ After=network-online.target
 Wants=network-online.target
 
 [Service]
-Type=notify
+Type=simple
 EnvironmentFile=/etc/etcd/etcd.conf
 ExecStart=/etc/etcd/etcd.bootstrap.sh
 
