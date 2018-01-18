@@ -91,12 +91,12 @@ fi
 echo "Startup the service..."
 
 /usr/bin/etcd \
---name "$name" \
---data-dir "$data_dir" \
---listen-peer-urls "$listen_peer_urls" \
---listen-client-urls "$listen_client_urls" \
---initial-advertise-peer-urls "$initial_adverties_peer_urls" \
---initial-cluster "$initial_cluster" \
---initial-cluster-state "$initial_cluster_state" \
---initial-cluster-token "$initial_cluster_token" \
---advertise-client-urls "$advertise_client_urls"
+ --name "$name" \
+ --data-dir "$data_dir" \
+ --listen-peer-urls "$listen_peer_urls" \
+ --listen-client-urls "$listen_client_urls" \
+ --initial-advertise-peer-urls "$initial_adverties_peer_urls" \
+ --initial-cluster "$initial_cluster" \
+ --initial-cluster-state "$initial_cluster_state" \
+ --initial-cluster-token "$initial_cluster_token" \
+ --advertise-client-urls "$advertise_client_urls"
