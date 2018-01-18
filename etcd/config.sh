@@ -4,10 +4,10 @@ sudo firewall-cmd --zone=public --add-port=2380/tcp --permanent
 sudo firewall-cmd --reload
 sudo firewall-cmd --list-ports
 
-#Step 3. install etcd
+#Step 2. install etcd
 sudo yum install -y etcd
 
-#Step 4. Write start script
+#Step 3. copy script
 sudo cp -f etcd.service /usr/lib/systemd/system/etcd.service
 
 sudo cp -f etcd.4450.conf /etc/etcd/etcd.conf
@@ -17,11 +17,12 @@ sudo cp -f etcd.310.conf /etc/etcd/etcd.conf
 sudo cp -f etcd.bootstrap.sh /etc/etcd/etcd.bootstrap.sh
 sudo chmod +x /etc/etcd/etcd.bootstrap.sh
 
-#Step 5. enable etcd service
+#Step 4. enable etcd service
 sudo systemctl enable etcd.service
 sudo systemctl daemon-reload
 sudo systemctl start etcd.service
 sudo systemctl status etcd.service
+
 
 curl http://10.100.97.236:2379/v2/members -XPOST -H "Content-Type: application/json" -d '{"peerURLs":["http://10.100.97.92:2380"]}'
 curl http://10.100.97.236:2379/v2/members -XPOST -H "Content-Type: application/json" -d '{"peerURLs":["http://10.100.97.64:2380"]}'
