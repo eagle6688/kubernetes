@@ -1,3 +1,6 @@
+#Install flannel on CentOS
+sudo yum install -y flannel
+
 #Add configuration in etcd
 etcdctl put /coreos.com/network/config '{ "Network": "172.17.0.0/16" }'
 curl -X PUT http://127.0.0.1:2379/v2/keys/coreos.com/network/config -d value='{ "Network": "172.17.0.0/16" }'
@@ -10,10 +13,10 @@ sudo firewall-cmd --list-ports
 #Create log directory
 sudo mkdir -p /var/log/flannel
 
-#replace flanneld
+#Replace flanneld
 sudo cp -f flanneld.4450 /etc/sysconfig/flanneld
 
-#start
+#Start
 sudo systemctl daemon-reload
 sudo systemctl start flanneld
 sudo systemctl status flanneld
