@@ -23,6 +23,6 @@ sudo systemctl daemon-reload
 sudo systemctl start etcd.service
 sudo systemctl status etcd.service
 
-
+#Step 4. add members
 curl http://10.100.97.236:2379/v2/members -XPOST -H "Content-Type: application/json" -d '{"peerURLs":["http://10.100.97.92:2380"]}'
-curl http://10.100.97.236:2379/v2/members -XPOST -H "Content-Type: application/json" -d '{"peerURLs":["http://10.100.97.64:2380"]}'
+curl http://10.100.97.236:2379/v2/members -XPOST -H "Content-Type: application/json" -d '{"peerURLs":["http://10.100.97.81:2380"]}'
