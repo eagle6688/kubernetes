@@ -4,9 +4,6 @@ sudo firewall-cmd --zone=public --add-port=2380/tcp --permanent
 sudo firewall-cmd --reload
 sudo firewall-cmd --list-ports
 
-#Step 2. create data folder for etcd
-sudo mkdir -p  /var/data/etcd
-
 #Step 3. install etcd
 sudo yum install -y etcd
 
