@@ -7,7 +7,7 @@ Wants=network-online.target
 [Service]
 Type=simple
 EnvironmentFile=/etc/etcd/etcd.conf
-ExecStart=/etc/etcd/etcd.bootstrap.sh
+ExecStart=/bin/bash -c "GOMAXPROCS=$(nproc) /etc/etcd/etcd.bootstrap.sh"
 
 [Install]
 WantedBy=multi-user.target
