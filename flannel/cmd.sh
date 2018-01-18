@@ -6,7 +6,7 @@ etcdctl put /coreos.com/network/config '{ "Network": "172.17.0.0/16" }'
 curl -X PUT http://127.0.0.1:2379/v2/keys/coreos.com/network/config -d value='{ "Network": "172.17.0.0/16" }'
 
 #Open ports 8285
-sudo firewall-cmd --zone=public --add-port=8285/tcp --permanent
+sudo firewall-cmd --zone=public --add-port=8285/udp --permanent
 sudo firewall-cmd --reload
 sudo firewall-cmd --list-ports
 
