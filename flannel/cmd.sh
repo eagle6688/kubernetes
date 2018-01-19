@@ -15,6 +15,7 @@ sudo mkdir -p /var/log/flannel
 
 #Replace flanneld
 sudo cp -f flanneld.4450 /etc/sysconfig/flanneld
+sudo cp -f flanneld.510 /etc/sysconfig/flanneld
 
 #Start
 sudo systemctl daemon-reload
