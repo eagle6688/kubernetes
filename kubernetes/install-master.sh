@@ -23,7 +23,7 @@ check_client_result=$?
 check_file "$server_file"
 check_server_result=$?
 
-if [ $check_client_result != 0 || $check_server_result != 0 ]
+if [[ $check_client_result != 0 || $check_server_result != 0 ]]
 then
     exit 1;
 fi
