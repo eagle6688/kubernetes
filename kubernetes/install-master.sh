@@ -22,6 +22,7 @@ fi
 
 echo "Extract $server_file to current directory..."
 tar -xzvf $server_file
+create_dir "$dir_install_server"
 move "$server_files" "$dir_install_server"
 remove kubernetes
 executable_file "$dir_install_server/kubelet"
