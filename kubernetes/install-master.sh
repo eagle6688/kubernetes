@@ -35,7 +35,7 @@ function extract_file(){
     
     create_dir $targetDir
     tar -xzf "${file}" --strip-components $gzDeep -C "${targetDir}"
-    echo "Extract $file to $targetPath"
+    echo "Extract $file to $targetDir"
 }
 
 function ln_file(){
