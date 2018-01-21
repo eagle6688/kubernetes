@@ -17,12 +17,18 @@ function check_file(){
     return 0;
 }
 
-if [ [ $(check_file "$client_file") == 1 || $(check_file "$server_file") == 1 ]  ]
+check_file "$client_file"
+check_client_result=$?
+
+check_file "$server_file"
+check_server_result=$?
+
+if [ $check_client_result != 0 || $check_server_result != 0 ]
 then
     exit 1;
 fi
 
-echo "We will install kubernates in $dir_intall"
+echo "We will install kubernates in ${dir_intall}"
 
 if [ ! -d "$dir_intall" ]
 then
