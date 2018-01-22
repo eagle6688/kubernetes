@@ -59,13 +59,20 @@ vim $HOME/.kube/config
 
 
 # Start all services on master
+sudo systemctl enable kube-apiserver kube-scheduler kube-controller-manager
 sudo systemctl daemon-reload
-sudo systemctl enable kube-apiserver kube-scheduler kube-controller-manager 
-sudo systemctl start kube-apiserver kube-scheduler kube-controller-manager
-systemctl status kube-apiserver kube-scheduler kube-controller-manager
+
+sudo systemctl start kube-apiserver
+sudo systemctl status kube-apiserver
+
+sudo systemctl start kube-scheduler
+sudo systemctl status kube-scheduler
 
 sudo systemctl start kube-controller-manager
 sudo systemctl status kube-controller-manager
+
+sudo systemctl start kube-apiserver kube-scheduler kube-controller-manager
+systemctl status kube-apiserver kube-scheduler kube-controller-manager
 
 # Test configuration on master
 curl http://127.0.0.1:8080

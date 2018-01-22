@@ -10,9 +10,6 @@ KUBE_API_ADDRESS="--insecure-bind-address=0.0.0.0"
 # The port on the local server to listen on.
 KUBE_API_PORT="--port=8080"
 
-# Port minions listen on
-KUBELET_PORT="--kubelet-port=10250"
-
 # Comma separated list of nodes in the etcd cluster
 KUBE_ETCD_SERVERS="--etcd-servers=http://10.100.97.236:2379,http://10.100.97.92:2379,http://10.100.97.81:2379"
 
