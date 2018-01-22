@@ -1,0 +1,11 @@
+###
+# kubernetes scheduler config
+
+# --v=0: log level for V logs
+KUBE_LOG_LEVEL="--v=4"
+
+# --leader-elect
+KUBE_LEADER_ELECT="--leader-elect"
+
+# Add your own!
+KUBE_SCHEDULER_ARGS=""

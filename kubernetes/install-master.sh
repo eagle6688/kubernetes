@@ -37,6 +37,10 @@ copytodir "$dir_gitlocal_kubernetes/apiserver" "$dir_install_service"
 copytodir "$dir_gitlocal_kubernetes/controller-manager" "$dir_install_service"
 copytodir "$dir_gitlocal_kubernetes/scheduler" "$dir_install_service"
 
+chmod +x $dir_install_service/apiserver/main.sh
+chmod +x $dir_install_service/controller-manager/main.sh
+chmod +x $dir_install_service/scheduler/main.sh
+
 copytodir "$dir_install_service/apiserver/kube-apiserver.service" "$dir_systemd"
 copytodir "$dir_install_service/controller-manager/kube-controller-manager.service" "$dir_systemd"
 copytodir "$dir_install_service/scheduler/kube-scheduler.service" "$dir_systemd"

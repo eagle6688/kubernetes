@@ -1,0 +1,10 @@
+[Unit]
+Description=Kubernetes Scheduler
+Documentation=https://github.com/kubernetes/kubernetes
+
+[Service]
+Type=simple
+ExecStart=/bin/bash -c "GOMAXPROCS=$(nproc) /usr/local/programes/kubernetes/services/scheduler/main.sh"
+
+[Install]
+WantedBy=multi-user.target
