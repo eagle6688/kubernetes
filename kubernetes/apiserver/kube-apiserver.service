@@ -4,7 +4,7 @@ Documentation=https://github.com/kubernetes/kubernetes
 
 [Service]
 Type=simple
-ExecStart=/bin/bash -c "GOMAXPROCS=$(nproc) /usr/local/programes/kubernates/service/apiserver/main.sh"
+ExecStart=/bin/bash -c "GOMAXPROCS=$(nproc) /usr/local/programes/kubernetes/services/apiserver/main.sh"
 
 [Install]
 WantedBy=multi-user.target
