@@ -1,4 +1,10 @@
 #!/bin/sh
-. ./apiserver.4450
+. /home/service/devutility.shell/tools.sh
 
-echo $KUBE_ETCD_SERVERS
+volume_srvkube=/srv/kubernetes
+volume_etcssl=/etc/ssl
+
+create_dir $volume_srvkube
+create_dir $volume_etcssl
+
+kubectl create -f apiserver.json

@@ -15,7 +15,7 @@
                     "--insecure-bind-address=0.0.0.0",
                     "--port=8080",
                     "--kubelet-port=10250",
-                    "--etcd-servers=http://10.100.97.236:2379",
+                    "--etcd-servers=http://10.100.97.236:2379,http://10.100.97.92:2379,http://10.100.97.81:2379",
                     "--service-cluster-ip-range=10.254.0.0/16",
                     "--admission-control=NamespaceLifecycle,NamespaceExists,LimitRanger,SecurityContextDeny,ServiceAccount,ResourceQuota"
                 ],
