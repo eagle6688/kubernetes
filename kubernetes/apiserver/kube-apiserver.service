@@ -3,14 +3,8 @@ Description=Kubernetes API Server
 Documentation=https://github.com/kubernetes/kubernetes
 
 [Service]
-Type=notify
-LimitNOFILE=65536
-EnvironmentFile=-/usr/local/programes/kubernates/options/config
-EnvironmentFile=-/usr/local/programes/kubernates/options/apiserver
-ExecStart=/usr/local/programes/kubernates/server/kube-apiserver \
-
-
-Restart=on-failure
+Type=simple
+ExecStart=/bin/bash -c "GOMAXPROCS=$(nproc) /usr/local/programes/kubernates/service/apiserver/main.sh"
 
 [Install]
 WantedBy=multi-user.target
