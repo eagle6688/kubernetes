@@ -32,10 +32,10 @@ executable_file "$dir_install_server/kube-apiserver"
 executable_file "$dir_install_server/kube-controller-manager"
 executable_file "$dir_install_server/kube-scheduler"
 
-copytodir "$dir_gitlocal_kubernetes/config" "$dir_install_service"
-copytodir "$dir_gitlocal_kubernetes/apiserver" "$dir_install_service"
-copytodir "$dir_gitlocal_kubernetes/controller-manager" "$dir_install_service"
-copytodir "$dir_gitlocal_kubernetes/scheduler" "$dir_install_service"
+copytodir "$dir_gitlocal_kubernetes/config" "$dir_install_service/"
+copytodir "$dir_gitlocal_kubernetes/apiserver" "$dir_install_service/"
+copytodir "$dir_gitlocal_kubernetes/controller-manager" "$dir_install_service/"
+copytodir "$dir_gitlocal_kubernetes/scheduler" "$dir_install_service/"
 
 # Install end
 
