@@ -1,0 +1,73 @@
+{
+    "apiVersion": "v1",
+    "kind": "Pod",
+    "metadata": {
+        "name": "kube-apiserver"
+    },
+    "spec": {
+        "hostNetwork": true,
+        "containers": [
+            {
+                "name": "kube-apiserver",
+                "image": "eagle6688/kube-apiserver:v1.9.2",
+                "command": [
+                    "kube-apiserver",
+                    "--insecure-bind-address=0.0.0.0",
+                    "--port=8080",
+                    "--kubelet-port=10250",
+                    "--etcd-servers=http://10.100.97.236:2379",
+                    "--service-cluster-ip-range=10.254.0.0/16",
+                    "--admission-control=NamespaceLifecycle,NamespaceExists,LimitRanger,SecurityContextDeny,ServiceAccount,ResourceQuota"
+                ],
+                "ports": [
+                    {
+                        "name": "https",
+                        "hostPort": 443,
+                        "containerPort": 443
+                    },
+                    {
+                        "name": "local",
+                        "hostPort": 8080,
+                        "containerPort": 8080
+                    }
+                ],
+                "volumeMounts": [
+                    {
+                        "name": "srvkube",
+                        "mountPath": "/srv/kubernetes",
+                        "readOnly": true
+                    },
+                    {
+                        "name": "etcssl",
+                        "mountPath": "/etc/ssl",
+                        "readOnly": true
+                    }
+                ],
+                "livenessProbe": {
+                    "httpGet": {
+                        "scheme": "HTTP",
+                        "host": "127.0.0.1",
+                        "port": 8080,
+                        "path": "/healthz"
+                    },
+                    "initialDelaySeconds": 15,
+                    "timeoutSeconds": 15
+                }
+            }
+        ],
+        "volumes": [
+            {
+                "name": "srvkube",
+                "hostPath": {
+                    "path": "/srv/kubernetes"
+                }
+            },
+            {
+                "name": "etcssl",
+                "hostPath": {
+                    "path": "/etc/ssl"
+                }
+            }
+        ]
+    }
+}

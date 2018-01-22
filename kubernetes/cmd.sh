@@ -54,6 +54,7 @@ sudo cp -f apiserver.4450 /etc/kubernetes/apiserver
 
 kubectl config set-cluster $CLUSTER_NAME --server=http://$MASTER_IP --insecure-skip-tls-verify=true
 kubectl config set-cluster "kube-cluster" --server=http://10.100.97.236:8080 --insecure-skip-tls-verify=true
+kubectl config view
 vim $HOME/.kube/config
 
 
