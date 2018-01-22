@@ -1,0 +1,16 @@
+[Unit]
+Description=Kubernetes API Server
+Documentation=https://github.com/kubernetes/kubernetes
+
+[Service]
+Type=notify
+LimitNOFILE=65536
+EnvironmentFile=-/usr/local/programes/kubernates/options/config
+EnvironmentFile=-/usr/local/programes/kubernates/options/apiserver
+ExecStart=/usr/local/programes/kubernates/server/kube-apiserver \
+
+
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

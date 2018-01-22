@@ -1,5 +1,5 @@
 #!/bin/sh
-. ./apiserver.4450
+. ./apiserver
 
 docker run -it -p 8080:8080 --name kube-apiserver eagle6688/kube-apiserver:v1.9.2 \
  kube-apiserver \
