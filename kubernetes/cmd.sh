@@ -39,7 +39,7 @@ sudo ./install-master.sh
 
 # Load docker images
 
-cd /usr/local/programes/kubernates/server
+cd /usr/local/programes/kubernetes/server
 docker load -i kube-apiserver.tar
 docker load -i kube-controller-manager.tar
 docker load -i kube-scheduler.tar
